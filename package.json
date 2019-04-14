@@ -1,0 +1,77 @@
+{
+  "name": "sms-manager",
+  "version": "0.1.0",
+  "description": "SMS management application api",
+  "main": "src/server.js",
+  "scripts": {
+    "mocha": "mocha tests --recursive --require @babel/register --exit",
+    "pretest": "export NODE_ENV=test && yarn db:migrate && yarn db:seed",
+    "test": "export NODE_ENV=test && yarn mocha",
+    "test:watch": "yarn test -w",
+    "test:coverage": "export NODE_ENV=test && yarn pretest && nyc $npm_package_scripts_mocha",
+    "prestart": "yarn build",
+    "start": "node build/server.js",
+    "dev": "yarn lint & nodemon -x babel-node src/server.js -w src",
+    "prebuild": "rm -rf build",
+    "build": "babel src -d build",
+    "lint": "eslint src tests",
+    "db:migrate": "yarn db:migrate:undo && sequelize db:migrate",
+    "db:migrate:undo": "sequelize db:migrate:undo:all",
+    "db:seed": "sequelize db:seed:undo:all && sequelize db:seed:all",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
+  },
+  "nyc": {
+    "exclude": [
+      "src/db/migrations",
+      "src/db/seeders",
+      "tests/*"
+    ],
+    "all": true,
+    "reporter": [
+      "text",
+      "lcov"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Japhethca/sms-manager.git"
+  },
+  "author": "Anyigor Chidiebere Japheth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Japhethca/sms-manager/issues"
+  },
+  "homepage": "https://github.com/Japhethca/sms-manager#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0",
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "mocha": "^6.0.2",
+    "nodemon": "^1.18.10",
+    "nyc": "^13.3.0",
+    "sequelize-cli": "^5.4.0",
+    "sinon": "^7.3.1",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.4.3",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "joi": "^14.3.1",
+    "morgan": "^1.9.1",
+    "pg": "^7.9.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^5.2.12"
+  }
+}
