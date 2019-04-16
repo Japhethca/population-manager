@@ -24,7 +24,7 @@ export async function getLocationById(locationId) {
 }
 
 export async function getLocationByName(name) {
-  const location = await Location.find({ where: { name } });
+  const location = await Location.findOne({ where: { name } });
   return location;
 }
 
