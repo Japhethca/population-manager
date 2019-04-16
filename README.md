@@ -3,10 +3,10 @@ Implements an API for managing the population of a given location.
 
 ### Setup
 - clone repository: https://github.com/Japhethca/population-manager.git
-- change directory to clone reposition `cd population-manager`
-- run `yarn install` to installed dependencies
+- change directory to cloned repository `cd population-manager`
+- run `yarn install` to install dependencies
 - setup `.env` using template in `.env_sample` file
-- run database migrations with `yarn db:migrate`
+- run database migration with `yarn db:migrate`
 - run `yarn dev` to start developement server or `yarn start` to start production server
 - test api endpoints on `http://localhost:3400/api/v1/`
 
