@@ -9,10 +9,12 @@ server.use(express.json());
 server.use(logger('tiny'));
 
 server.use('/api/v1', router);
+server.all('*', (req, res) => res.status(404)
+  .json({ message: 'The endpoint you are trying to access does not exist' }));
 
-const port = process.env.PORT || 3300;
+const port = process.env.PORT || 3400;
 server.listen(port, () => {
-  console.log('server is running on port 3300');
+  console.log(`server is running on port ${port}`);
 });
 
 export default server;

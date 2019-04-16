@@ -20,3 +20,7 @@ export function serverError(res, status = 500) {
     message: 'There was an internal server errror',
   });
 }
+
+export function methodNotImplemented(req, res) {
+  return errorResponse(res, 405, 'The method you are trying to access is not implemented');
+}
