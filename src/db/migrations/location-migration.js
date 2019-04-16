@@ -1,28 +1,29 @@
 export default {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('Population', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('Location', {
     id: {
       primaryKey: true,
       type: Sequelize.INTEGER,
       autoIncrement: true,
     },
-    location: {
+    name: {
       type: Sequelize.STRING,
       allowNull: false,
+      unique: true,
     },
     femaleResidents: {
-      type: Sequelize.STRING,
+      type: Sequelize.INTEGER,
       allowNull: false,
     },
     maleResidents: {
-      type: Sequelize.STRING,
+      type: Sequelize.INTEGER,
       allowNull: false,
     },
     totalResidents: {
-      type: Sequelize.STRING,
+      type: Sequelize.INTEGER,
       allowNull: false,
     },
     createdAt: Sequelize.DATE,
     updatedAt: Sequelize.DATE,
   }),
-  down: queryInterface => queryInterface.dropTable('Population'),
+  down: queryInterface => queryInterface.dropTable('Location'),
 };
