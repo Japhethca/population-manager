@@ -1,6 +1,8 @@
 ## Population Managment API
 Implements an API for managing the population of a given location.
 
+## Getting Started
+
 ### Setup
 - clone repository: https://github.com/Japhethca/population-manager.git
 - change directory to cloned repository `cd population-manager`
