@@ -1,3 +1,4 @@
+[![Coverage Status](https://coveralls.io/repos/github/Japhethca/population-manager/badge.svg?branch=master)](https://coveralls.io/github/Japhethca/population-manager?branch=master)
 ## Population Managment API
 Implements an API for managing the population of a given location.
 
