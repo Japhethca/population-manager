@@ -2,12 +2,11 @@ import models from '../models';
 
 const { Location } = models;
 
-export async function createLocation({ maleResidents, femaleResidents, name }) {
+export async function createLocation(fields) {
+  const { maleResidents, femaleResidents } = fields;
   const totalResidents = maleResidents + femaleResidents;
   const createdLocation = await Location.create({
-    name,
-    maleResidents,
-    femaleResidents,
+    ...fields,
     totalResidents,
   });
   return createdLocation;

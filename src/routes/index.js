@@ -26,6 +26,7 @@ router
         name: joi.string().required(),
         maleResidents: joi.number().required(),
         femaleResidents: joi.number().required(),
+        relatedLocationId: joi.number().optional(),
       },
     }),
     createLocation,
@@ -43,6 +44,7 @@ router
         name: joi.string().optional(),
         maleResidents: joi.number().optional(),
         femaleResidents: joi.number().optional(),
+        relatedLocationId: joi.number().optional(),
       },
     }),
     updateLocation)

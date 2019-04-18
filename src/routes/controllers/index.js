@@ -7,13 +7,8 @@ import {
 
 
 export async function createLocation(req, res) {
-  const { name, maleResidents, femaleResidents } = req.body;
   try {
-    const location = await LocationManagers.createLocation({
-      name,
-      femaleResidents,
-      maleResidents,
-    });
+    const location = await LocationManagers.createLocation(req.body);
     return jsonResponse(res, 201, location);
   } catch (err) {
     return serverError(res, 500);
