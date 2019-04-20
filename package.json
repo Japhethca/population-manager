@@ -35,14 +35,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Japhethca/sms-manager.git"
+    "url": "git+https://github.com/Japhethca/population-manager.git"
   },
   "author": "Anyigor Chidiebere Japheth",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Japhethca/sms-manager/issues"
+    "url": "https://github.com/Japhethca/population-manager/issues"
   },
-  "homepage": "https://github.com/Japhethca/sms-manager#readme",
+  "homepage": "https://github.com/Japhethca/population-manager#readme",
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
