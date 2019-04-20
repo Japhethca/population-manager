@@ -38,7 +38,7 @@ describe('DB managers', () => {
     sinon.replace(models.Location, 'findByPk', sinon.fake.resolves(locationsMock[1]));
     sinon.replace(models.Location, 'findAll', sinon.fake.resolves(locationsMock));
     sinon.replace(models.Location, 'findOne', sinon.fake.resolves(locationsMock[1]));
-    sinon.replace(models.Location, 'update', sinon.fake.resolves(locationsMock[1]));
+    sinon.replace(models.Location, 'upsert', sinon.fake.resolves([locationsMock[1]]));
     sinon.replace(models.Location, 'destroy', sinon.fake());
   });
 
@@ -95,12 +95,10 @@ describe('DB managers', () => {
       const locationId = 2;
       const res = await updateLocation(locationId, payload);
       expect(res).to.equal(locationsMock[1]);
-      expect(models.Location.update.calledWith(
-        { ...payload },
+      expect(models.Location.upsert.calledWith(
+        { ...payload, id: locationId },
         {
-          where: {
-            id: locationId,
-          },
+          returning: true,
         },
       )).to.equal(true);
     });

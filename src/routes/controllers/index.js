@@ -36,6 +36,9 @@ export async function updateLocation(req, res) {
     const location = await LocationManagers.updateLocation(locationId, req.body);
     return jsonResponse(res, 201, location);
   } catch (err) {
+    if (err.name === 'SequelizeUniqueConstraintError') {
+      return errorResponse(res, 409, 'location with name already exists');
+    }
     return serverError(res);
   }
 }

@@ -42,13 +42,6 @@ export default (sequelize, DataTypes) => {
     totalResidents: {
       type: DataTypes.INTEGER,
       defaultValue: 0,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'total number of residents is required',
-        },
-      },
       get() {
         const males = this.getDataValue('maleResidents');
         const females = this.getDataValue('femaleResidents');

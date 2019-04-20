@@ -1,10 +1,12 @@
 import express from 'express';
 import logger from 'morgan';
+import helmet from 'helmet';
 
 import router from './routes';
 
 const server = express();
 
+server.use(helmet());
 server.use(express.json());
 server.use(logger('tiny'));
 

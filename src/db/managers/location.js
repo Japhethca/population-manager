@@ -43,6 +43,12 @@ export async function updateLocation(locationId, fields) {
       validFields[field] = fields[field];
     }
   });
-  const location = await Location.update({ ...validFields }, { where: { id: locationId } });
+  validFields.id = locationId;
+  const [location] = await Location.upsert(
+    { ...validFields },
+    {
+      returning: true,
+    },
+  );
   return location;
 }
