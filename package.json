@@ -1,7 +1,7 @@
 {
-  "name": "sms-manager",
+  "name": "population-manager",
   "version": "0.1.0",
-  "description": "SMS management application api",
+  "description": "Population management application api",
   "main": "src/server.js",
   "scripts": {
     "mocha": "mocha tests --recursive --require @babel/register --exit",
